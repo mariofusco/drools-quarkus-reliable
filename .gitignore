@@ -1,6 +1,7 @@
 bin/
 /target
 /local
+/global/state
 
 # Eclipse, Netbeans and IntelliJ files
 .*
