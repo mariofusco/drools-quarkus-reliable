@@ -24,4 +24,4 @@ spec:
   accessModes:
     - ReadWriteMany
   hostPath:
-    path: "/home/mario/workspace/drools/drools-quarkus-reliable/tmp"
+    path: "/mnt/data"
