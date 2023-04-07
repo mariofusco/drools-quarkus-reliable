@@ -13,9 +13,6 @@ import java.util.Map;
 
 @Singleton
 public class SessionsManager {
-    static {
-        System.setProperty("drools.reliability.cache.allowedpackages", "org.example.domain");
-    }
 
     @Inject
     KieRuntimeBuilder runtimeBuilder;
