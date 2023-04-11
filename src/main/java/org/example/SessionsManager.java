@@ -33,6 +33,7 @@ public class SessionsManager {
             KieSessionConfiguration conf = KieServices.get().newKieSessionConfiguration();
             conf.setOption(PersistedSessionOption.fromSession(sessionId, PersistedSessionOption.Strategy.STORES_ONLY));
             session = runtimeBuilder.newKieSession(conf);
+            sessionsStore.put(sessionId, session);
         }
         return session;
     }

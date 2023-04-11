@@ -45,6 +45,6 @@ public class FindApprovedLoansEndpoint {
         loanUnit.getLoanApplications().forEach(session::insert);
         session.fireAllRules();
 
-        return new Response(session.getIdentifier(), approvedApplicationsAmount.get());
+        return new Response(sessionId, approvedApplicationsAmount.get());
     }
 }
