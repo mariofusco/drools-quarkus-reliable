@@ -80,7 +80,7 @@ mvn clean package
 minikube image load mariofusco/drools-quarkus-reliable:1.0-SNAPSHOT
 ```
 
-4. Mount a directory from the host into the guest. This is necessary because minikube doesn't grant the right write permission by default as reported [here](https://stackoverflow.com/questions/60479594/minikube-volume-write-permissions#comment133955675_60498848).
+4. Mount a directory from the host into the guest using an explicit UID e GID. This is necessary because minikube doesn't grant the right write permission by default as reported [here](https://stackoverflow.com/questions/60479594/minikube-volume-write-permissions#comment133955675_60498848).
 
 ```sh
 minikube mount $(pwd)/minikubetmp:/mnt/data --uid 185 --gid 0
