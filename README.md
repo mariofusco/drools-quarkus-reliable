@@ -68,6 +68,15 @@ To run this project inside minikube it is necessary to follow these steps:
 minikube start
 ```
 
+> **Note for RHEL users**
+> In RHEL, instead of `minikube start`, execute the following commands:
+> ```sh
+> chmod 777 minikubetmp
+> minikube start --mount --mount-string="$(pwd)/minikubetmp:/mnt/data"
+> ```
+> Also skip `minikube mount ...` in the later step.
+> These changes are required because RHEL doesn't support `9p` mount.
+
 2. Build this project.
 
 ```sh
@@ -123,7 +132,7 @@ curl -X POST -H 'Accept: application/json' -H 'Content-Type: application/json' h
 and evaluate loan applications on that session with something like:
 
 ```sh
-curl -X POST -H 'Accept: application/json' -H 'Content-Type: application/json' -d '{"maxAmount":5000,"loanApplications":[{"id":"ABC10001","amount":2000,"deposit":100,"applicant":{"age":45,"name":"John"}}, {"id":"ABC10002","amount":5000,"deposit":100,"applicant":{"age":25,"name":"Paul"}}, {"id":"ABC10015","amount":1000,"deposit":100,"applicant":{"age":12,"name":"George"}}]}' http://http://10.110.16.144:80/session/0/find-approved-amount
+curl -X POST -H 'Accept: application/json' -H 'Content-Type: application/json' -d '{"maxAmount":5000,"loanApplications":[{"id":"ABC10001","amount":2000,"deposit":100,"applicant":{"age":45,"name":"John"}}, {"id":"ABC10002","amount":5000,"deposit":100,"applicant":{"age":25,"name":"Paul"}}, {"id":"ABC10015","amount":1000,"deposit":100,"applicant":{"age":12,"name":"George"}}]}' http://10.110.16.144:80/session/0/find-approved-amount
 ```
 
 9. From the minikube dashboard it is now also possible to scale to zero the deployment running this application. 
