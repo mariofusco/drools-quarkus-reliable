@@ -25,4 +25,4 @@ jobs:
           java-version: 11
           maven-version: 3.8.6
       - name: Deploy to Minikube and check for session availability
-        run: ./deploy.s
+        run: ./deploy.sh
