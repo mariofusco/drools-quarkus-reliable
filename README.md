@@ -131,3 +131,8 @@ curl -X POST -H 'Accept: application/json' -H 'Content-Type: application/json' -
 ![img.png](images/scaletozero.png)
 
 Trying to do so of course the application won't respond anymore to any further rest invocation, but scaling it up to one again the reliable session will automatically restore its state and the computation can continue as nothing happened.
+
+🎦 A video demonstrating how this works is available here: https://youtu.be/GSOEQ8e0e0E
+
+![img.png](images/video.png)
+
