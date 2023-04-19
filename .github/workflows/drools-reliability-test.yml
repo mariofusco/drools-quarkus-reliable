@@ -1,0 +1,28 @@
+#Deploys drools engine to kubernetes
+name: Drools reliability test
+
+on:
+  workflow_dispatch:
+  push:
+  pull_request:
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  os-prep:
+    runs-on: ubuntu-latest
+    steps:
+      - name: setup-minikube
+        uses: medyagh/setup-minikube@v0.0.11
+
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Java and Maven Setup
+        uses: kiegroup/kogito-pipelines/.ci/actions/maven@main
+        with:
+          java-version: 11
+          maven-version: 3.8.6
+      - name: Deploy to Minikube and check for session availability
+        run: ./deploy.s
